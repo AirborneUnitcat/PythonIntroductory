@@ -3,9 +3,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: fastapi-api
-    ports:
-      - "9051:9051"
     restart: always
 
   web:
@@ -13,14 +10,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - VITE_API_BASE_URL=http://localhost:9051
-    container_name: react-web
-    ports:
-      - "3000:80"
+        - VITE_API_BASE_URL=http://api:8000
     depends_on:
       - api
     restart: always
-
-networks:
-  default:
-    name: project-network
