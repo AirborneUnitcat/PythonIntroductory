@@ -7,7 +7,7 @@ app = FastAPI()
 def hello_world(name: str | None = None):
     if name is None:
         return {"result": "Hello World"}
-    return {"result": f"Hello, {name}. Its' nice to meet you!"}
+    return {"result": f"Hello, Lady {name} of CatVille. Its' nice to meet you!"}
 
 
 @app.get("/add")
