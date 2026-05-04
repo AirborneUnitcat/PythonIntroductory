@@ -28,5 +28,5 @@ def multiply(number1: int, number2:int):
 @app.get("/divide")
 def divide(number1: int, number2:int):
     if number2 == 0:
-        return {"error": "You can't divide by zero"}
+        return {"error": "You can't divide by zero, please provide a non-zero second number"}
     return {"result": number1/number2}
