@@ -1,7 +1,14 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # allow all methods
+    allow_headers=["*"],  # allow all headers
+)
 
 @app.get("/hello-world")
 def hello_world(name: str | None = None):
